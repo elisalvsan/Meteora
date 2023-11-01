@@ -1,7 +1,31 @@
-.texto-menor{
-    font-size: .8125rem;
+.texto-menor {
+  font-size: 0.8125rem;
 }
 
-.divs-facilidades{
+.divs-facilidades {
+  width: 325px;
+}
+
+.verde-limao {
+  color: #daff01;
+}
+
+.botao-lilas {
+  background-color: #9353ff;
+}
+
+.posicao {
+  top: 40%;
+}
+
+@media (max-width: 767px) {
+  .posicao {
+    top: 60%;
+  }
+}
+
+@media (max-width: 579) {
+  .div-novidades {
     width: 325px;
+  }
 }

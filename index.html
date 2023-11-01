@@ -1,478 +1,353 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/image/favicon.png" type="image/x-icon">
+  <title>Meteora</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-    <title>Meteora</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Meteora</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Lojas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Novidades</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Promoções</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Digite o produto"
-              aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">
-              Buscar
-            </button>
-          </form>
-        </div>
-      </div>
-    </nav>
-
-    <div
-      id="carouselExampleCaptions"
-      class="carousel slide"
-      data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="data:image/jpeg;base64,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"
-            class="d-block w-100"
-            alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="data:image/jpeg;base64,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"
-            class="d-block w-100"
-            alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="data:image/jpeg;base64,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"
-            class="d-block w-100"
-            alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+<body>
+  <nav class="navbar navbar-expand-md bg-black navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <h1 class="m-0"><img class="d-block" src="./assets/image/logo-meteora.png" alt="Logo da loja Meteora"></h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Lojas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Novidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Promoções</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 rounded-0" type="search" placeholder="Digite o produto" aria-label="Search" />
+          <button class="btn btn-outline-light rounded-0" type="submit">
+            Buscar
+          </button>
+        </form>
+      </div>
     </div>
+  </nav>
 
-    <h2 class="text-center">Busque por categoria</h2>
-
-    <div class="container row mx-auto g-4">
-      <div class="col-6 col-md-4 col-xxl-2">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-header">
-            <p class="text-center">Categoria</p>
-          </div>
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="w-100 img-fluid d-md-none" src="./assets/image/Mobile/banner1-mobile.png"
+          alt="Modelo feminina vestindo blusa rosa fluorescente, em fundo lilás.">
+        <img class="w-100 img-fluid d-none d-md-block d-xl-none" src="./assets/image/Tablet/banner1-tablet.png"
+          alt="Modelo feminina vestindo blusa rosa fluorescente, em fundo lilás.">
+        <img class="w-100 img-fluid d-none d-xl-block" src="./assets/image/Desktop/banner1-desktop.png"
+          alt="Modelo feminina vestindo blusa rosa fluorescente, em fundo lilás.">
+      </div>
+      <div class="carousel-item position-relative">
+        <img class="w-100 img-fluid d-md-none" src="./assets/image/Mobile/banner2-mobile.png"
+          alt="Modelo feminina utilizando óculos escuros e vestindo conjunto esportivo de blusa e calça na cor preta, sentada em um sofá preto em um fundo rosa.">
+        <img class="w-100 img-fluid d-none d-md-block d-xl-none" src="./assets/image/Tablet/banner2-tablet.png"
+          alt="Modelo feminina utilizando óculos escuros e vestindo conjunto esportivo de blusa e calça na cor preta, sentada em um sofá preto em um fundo rosa.">
+        <img class="w-100 img-fluid d-none d-xl-block" src="./assets/image/Desktop/banner2-desktop.png"
+          alt="Modelo feminina utilizando óculos escuros e vestindo conjunto esportivo de blusa e calça na cor preta, sentada em um sofá preto em um fundo rosa.">
+        <div class="carousel-caption position-absolute posicao">
+          <h5 class="fs-1">COLEÇÃO ATEMPORAL</h5>
+          <p class="fs-4">Estilo e qualidade para durar.</p>
         </div>
       </div>
-      <div class="col-6 col-md-4 col-xxl-2">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-header">
-            <p class="text-center">Categoria</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-xxl-2">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-header">
-            <p class="text-center">Categoria</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-xxl-2">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-header">
-            <p class="text-center">Categoria</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-xxl-2">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-header">
-            <p class="text-center">Categoria</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-xxl-2">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-header">
-            <p class="text-center">Categoria</p>
-          </div>
+      <div class="carousel-item position-relative">
+        <img class="w-100 img-fluid d-md-none" src="./assets/image/Mobile/banner3-mobile.png"
+          alt="Modelo feminina utilizando óculos escuros e vestindo conjunto esportivo de blusa e calça na cor preta, sentada em um sofá preto em um fundo rosa.">
+        <img class="w-100 img-fluid d-none d-md-block d-xl-none" src="./assets/image/Tablet/banner3-tablet.png"
+          alt="Modelo feminina utilizando óculos escuros e vestindo conjunto esportivo de blusa e calça na cor preta, sentada em um sofá preto em um fundo rosa.">
+        <img class="w-100 img-fluid d-none d-xl-block" src="./assets/image/Desktop/banner3-desktop.png"
+          alt="Modelo feminina utilizando óculos escuros e vestindo conjunto esportivo de blusa e calça na cor preta, sentada em um sofá preto em um fundo rosa.">
+        <div class="carousel-caption position-absolute posicao">
+          <h5 class="fs-1 ">COLEÇÃO ATEMPORAL</h5>
+          <p class="fs-4">Alto impacto visual, baixo impacto ambiental!</p>
         </div>
       </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-    <h2 class="text-center">Produtos que estão bombando!</h2>
+  <h2 class="text-center my-3 my-xl-5">Busque por categoria</h2>
 
-    <div class="container row mx-auto">
-      <div class="col-12 col-md-6 col-xxl-4 pb-4">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Produto</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <p>R$30,00</p>
-            <a href="#" class="btn btn-primary">Ver mais</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xxl-4 pb-4">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Produto</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <p>R$30,00</p>
-            <a href="#" class="btn btn-primary">Ver mais</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xxl-4 pb-4">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Produto</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <p>R$30,00</p>
-            <a href="#" class="btn btn-primary">Ver mais</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xxl-4 pb-4">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Produto</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <p>R$30,00</p>
-            <a href="#" class="btn btn-primary">Ver mais</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xxl-4 pb-4">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Produto</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <p>R$30,00</p>
-            <a href="#" class="btn btn-primary">Ver mais</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-xxl-4 pb-4">
-        <div class="card">
-          <svg
-            class="bd-placeholder-img card-img-top"
-            width="100%"
-            height="180"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: Image cap"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96"></rect>
-            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Produto</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <p>R$30,00</p>
-            <a href="#" class="btn btn-primary">Ver mais</a>
-          </div>
+  <div class="container row mx-auto g-4">
+    <div class="col-6 col-md-4 col-xxl-2">
+      <div class="card rounded-0 border-0">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/categorias/categoria-camiseta.png"
+          alt="Camisata masculina de manga na cor verde, com bolso, com detalhe vemelho, em um fundo verde limão.">
+        <img class="d-md-block d-none d-xl-none" src="./assets/image/Tablet/categorias/categoria-camiseta.png"
+          alt="Camisata masculina de manga na cor verde, com bolso, com detalhe vemelho, em um fundo verde limão.">
+        <img class="d-xl-block d-none d-dm-none" src="./assets/image/Desktop/categorias/categoria-camiseta.png"
+          alt="Camisata masculina de manga na cor verde, com bolso, com detalhe vemelho, em um fundo verde limão.">
+        <div class="card-header bg-black text-bg-dark">
+          <p class="text-center card-text">Camisetas</p>
         </div>
       </div>
     </div>
-
-    <section class="pb-4">
-      <h2 class="text-center">Conheça todas as nossas facilidades</h2>
-      <div
-        class="d-flex flex-column flex-lg-row align-items-center justify-content-center gap-3 px-3">
-        <ul class="divs-facilidades d-flex list-unstyled">
-          <li><i class="bi bi-x-diamond fs-1"></i></li>
-          <div>
-            <li class="ms-3 mb-1">PAGUE PELO PIX</li>
-            <li class="texto-menor ms-3">Ganhe 5% OFF em pagamentos via PIX</li>
-          </div>
-        </ul>
-        <ul class="divs-facilidades d-flex list-unstyled">
-          <li><i class="bi bi-arrow-repeat fs-1"></i></li>
-          <div>
-            <li class="ms-3 mb-1">TROCA GRÁTIS</li>
-            <li class="texto-menor ms-3">
-              Fique livre para trocar em até 30 dias.
-            </li>
-          </div>
-        </ul>
-        <ul class="divs-facilidades d-flex list-unstyled">
-          <li><i class="bi bi-flower1 fs-1"></i></li>
-          <div>
-            <li class="ms-3 mb-1">SUSTENTABILIDADE</li>
-            <li class="texto-menor ms-3">
-              Moda responsável, que respeita o meio ambiente.
-            </li>
-          </div>
-        </ul>
+    <div class="col-6 col-md-4 col-xxl-2">
+      <div class="card rounded-0 border-0">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/categorias/categoria-bolsas.png"
+          alt="Bolsa feminina de couro na cor marrom, com cortes quadrados, e alça dourada em formato de corrente com detalhe verde, em fundo verde limão.">
+        <img class="d-md-block d-none d-xl-none" src="./assets/image/Tablet/categorias/categoria-bolsas.png"
+          alt="Bolsa feminina de couro na cor marrom, com cortes quadrados, e alça dourada em formato de corrente com detalhe verde, em fundo verde limão.">
+        <img class="d-xl-block d-none d-dm-none" src="./assets/image/Desktop/categorias/categoria-bolsa.png"
+          alt="Bolsa feminina de couro na cor marrom, com cortes quadrados, e alça dourada em formato de corrente com detalhe verde, em fundo verde limão.">
+        <div class="card-header bg-black text-bg-dark">
+          <p class="text-center card-text">Bolsas</p>
+        </div>
       </div>
-    </section>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+      <div class="card rounded-0 border-0">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/categorias/categoria-calcados.png"
+          alt="Par de tênis unissex com cor predominante branca e traços na cores laranja, azul, verde e cadarço vermelho, em fundo verde limão.">
+        <img class="d-md-block d-none d-xl-none" src="./assets/image/Tablet/categorias/categoria-calcados.png"
+          alt="Par de tênis unissex com cor predominante branca e traços na cores laranja, azul, verde e cadarço vermelho, em fundo verde limão.">
+        <img class="d-xl-block d-none d-dm-none" src="./assets/image/Desktop/categorias/categoria-calcados.png"
+          alt="Par de tênis unissex com cor predominante branca e traços na cores laranja, azul, verde e cadarço vermelho, em fundo verde limão.">
+        <div class="card-header bg-black text-bg-dark">
+          <p class="text-center card-text">Calçados</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+      <div class="card rounded-0 border-0">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/categorias/categoria-calcas.png"
+          alt="Quatro calças jeans dobradas e organizadas uma acima da outra, em fundo verde limão.">
+        <img class="d-md-block d-none d-xl-none" src="./assets/image/Tablet/categorias/categoria-calcas.png"
+          alt="Quatro calças jeans dobradas e organizadas uma acima da outra, em fundo verde limão.">
+        <img class="d-xl-block d-none d-dm-none" src="./assets/image/Desktop/categorias/categoria-calcas.png"
+          alt="Quatro calças jeans dobradas e organizadas uma acima da outra, em fundo verde limão.">
+        <div class="card-header bg-black text-bg-dark">
+          <p class="text-center card-text">Calças</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+      <div class="card rounded-0 border-0">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/categorias/categoria-casacos.png"
+          alt="Casaco masculino na cor marrom em fundo verde limão.">
+        <img class="d-md-block d-none d-xl-none" src="./assets/image/Tablet/categorias/categoria-casacos.png"
+          alt="Casaco masculino na cor marrom em fundo verde limão.">
+        <img class="d-xl-block d-none d-dm-none" src="./assets/image/Desktop/categorias/categoria-casacos.png"
+          alt="Casaco masculino na cor marrom em fundo verde limão.">
+        <div class="card-header bg-black text-bg-dark">
+          <p class="text-center card-text">Casacos</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-4 col-xxl-2">
+      <div class="card rounded-0 border-0">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/categorias/categoria-oculos.png"
+          alt="Óculos de Sol com lentes arredondadas e armação dourada, em fundo verde limão.">
+        <img class="d-md-block d-none d-xl-none" src="./assets/image/Tablet/categorias/categoria-oculos.png"
+          alt="Óculos de Sol com lentes arredondadas e armação dourada, em fundo verde limão.">
+        <img class="d-xl-block d-none d-dm-none" src="./assets/image/Desktop/categorias/categoria-oculos.png"
+          alt="Óculos de Sol com lentes arredondadas e armação dourada, em fundo verde limão.">
+        <div class="card-header bg-black text-bg-dark">
+          <p class="text-center card-text">Óculos</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <form class="border border-secondary m-3 p-3 text-center">
-      <h5>
-        Quer receber nossas novidades, promoções exclusivas e 10% OFF na
-        primeira compra? Cadastre-se!
-      </h5>
-      <div class="input-group my-3"">
+  <h2 class="container text-center my-3 my-xl-5">Produtos que estão bombando!</h2>
+
+  <div class="container row mx-auto">
+    <div class="col-12 col-md-6 col-xxl-4 pb-4">
+      <div class="card">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/produtos/camiseta.png"
+          alt="Modelo masculo vestindo touca preta, blusa marrom e calça jeans, com uma parede cinza de fundo.">
+        <img class="d-none d-md-block d-xl-none" src="./assets/image/Tablet/produtos/camiseta.png"
+          alt="Modelo masculo vestindo touca preta, blusa marrom e calça jeans, com uma parede cinza de fundo.">
+        <img class="d-none d-xl-block" src="./assets/image/Desktop/produtos/camiseta.png"
+          alt="Modelo masculo vestindo touca preta, blusa marrom e calça jeans, com uma parede cinza de fundo.">
+        <div class="card-body">
+          <h5 class="card-title">Camiseta Conforto</h5>
+          <p class="card-text">
+            Multicores e tamanhos. Tecido de algodão 100%, fresquinho para o verão. Modelagem unissex.
+          </p>
+          <p>R$70,00</p>
+          <a href="#" class="btn btn-primary botao-lilas rounded-0 border-0">Ver mais</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xxl-4 pb-4">
+      <div class="card">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/produtos/calca.png"
+          alt="Modelo feminina vestindo blusa marrom, calça bege, par de sapatos altos na cor branca, cordão e pulseira, em um ambiente aberto com chão de terra e matos secos.">
+        <img class="d-none d-md-block d-xl-none" src="./assets/image/Tablet/produtos/calca.png"
+          alt="Modelo feminina vestindo blusa marrom, calça bege, par de sapatos altos na cor branca, cordão e pulseira, em um ambiente aberto com chão de terra e matos secos.">
+        <img class="d-none d-xl-block" src="./assets/image/Desktop/produtos/calca.png"
+          alt="Modelo feminina vestindo blusa marrom, calça bege, par de sapatos altos na cor branca, cordão e pulseira, em um ambiente aberto com chão de terra e matos secos.">
+        <div class="card-body">
+          <h5 class="card-title">Calça Alfaiataria</h5>
+          <p class="card-text">
+            Modelo Wide Leg alfaiataria em linho. Uma peça pra vida toda!
+          </p>
+          <p>R$180,00</p>
+          <a href="#" class="btn btn-primary botao-lilas rounded-0 border-0">Ver mais</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xxl-4 pb-4">
+      <div class="card">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/produtos/tenis.png"
+          alt="Foco nos pés de modelo usando par de tênis e meia na cor branca, e calça na cor preta, pisando em uma poça de água.">
+        <img class="d-none d-md-block d-xl-none" src="./assets/image/Tablet/produtos/tenis.png"
+          alt="Foco nos pés de modelo usando par de tênis e meia na cor branca, e calça na cor preta, pisando em uma poça de água.">
+        <img class="d-none d-xl-block" src="./assets/image/Desktop/produtos/tenis.png"
+          alt="Foco nos pés de modelo usando par de tênis e meia na cor branca, e calça na cor preta, pisando em uma poça de água.">
+        <div class="card-body">
+          <h5 class="card-title">Tênis Chunky</h5>
+          <p class="card-text">
+            Snicker casual com solado mais alto e modelagem robusta. Modelo unissex.
+          </p>
+          <p>R$250,00</p>
+          <a href="#" class="btn btn-primary botao-lilas rounded-0 border-0">Ver mais</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xxl-4 pb-4">
+      <div class="card">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/produtos/jaqueta-jeans.png"
+          alt="Modelo masculino vestindo toca e calça na cor preta, jaqueta jeans azul, blusa branca e cordão dourado, em um fundo branco.">
+        <img class="d-none d-md-block d-xl-none" src="./assets/image/Tablet/produtos/jaqueta-jeans.png"
+          alt="Modelo masculino vestindo toca e calça na cor preta, jaqueta jeans azul, blusa branca e cordão dourado, em um fundo branco.">
+        <img class="d-none d-xl-block" src="./assets/image/Desktop/produtos/jaqueta-jeans.png"
+          alt="Modelo masculino vestindo toca e calça na cor preta, jaqueta jeans azul, blusa branca e cordão dourado, em um fundo branco.">
+        <div class="card-body">
+          <h5 class="card-title">Jaqueta Jeans</h5>
+          <p class="card-text">
+            Modelo unissex oversized com gola de camurça. Atemporal e autêntica!
+          </p>
+          <p>R$150,00</p>
+          <a href="#" class="btn btn-primary botao-lilas rounded-0 border-0">Ver mais</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xxl-4 pb-4">
+      <div class="card">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/produtos/oculos.png"
+          alt="Modelo masculino com blusa branca e um par de óculos de lentes transparentes arredondadas, utilizando um notebook, com um cachorro poodle branco no seu colo, e em um fundo branco.">
+        <img class="d-none d-md-block d-xl-none" src="./assets/image/Tablet/produtos/oculos.png"
+          alt="Modelo masculino com blusa branca e um par de óculos de lentes transparentes arredondadas, utilizando um notebook, com um cachorro poodle branco no seu colo, e em um fundo branco.">
+        <img class="d-none d-xl-block" src="./assets/image/Desktop/produtos/oculos.png"
+          alt="Modelo masculino com blusa branca e um par de óculos de lentes transparentes arredondadas, utilizando um notebook, com um cachorro poodle branco no seu colo, e em um fundo branco.">
+        <div class="card-body">
+          <h5 class="card-title">Óculos Redondo</h5>
+          <p class="card-text">
+            Armação metálica em grafite com lentes arredondadas. Sem erro!
+          </p>
+          <p>R$120,00</p>
+          <a href="#" class="btn btn-primary botao-lilas rounded-0 border-0">Ver mais</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-xxl-4 pb-4">
+      <div class="card">
+        <img class="d-block d-md-none" src="./assets/image/Mobile/produtos/bolsa.png"
+          alt="Cintura, pernas e pés de modelo feminina vestindo sobretudo de cor predominante bege com detalhes em tom vermelho e escuro, com calça e par de sapatos na cor preta, segurando bolsa na cor bege, com fundo de prédio.">
+        <img class="d-none d-md-block d-xl-none" src="./assets/image/Tablet/produtos/bolsa.png"
+          alt="Cintura, pernas e pés de modelo feminina vestindo sobretudo de cor predominante bege com detalhes em tom vermelho e escuro, com calça e par de sapatos na cor preta, segurando bolsa na cor bege, com fundo de prédio.">
+        <img class="d-none d-xl-block" src="./assets/image/Desktop/produtos/bolsa.png"
+          alt="Cintura, pernas e pés de modelo feminina vestindo sobretudo de cor predominante bege com detalhes em tom vermelho e escuro, com calça e par de sapatos na cor preta, segurando bolsa na cor bege, com fundo de prédio.">
+        <div class="card-body">
+          <h5 class="card-title">Bolsa coringa</h5>
+          <p class="card-text">
+            Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!
+          </p>
+          <p>R$120,00</p>
+          <a href="#" class="btn btn-primary botao-lilas rounded-0 border-0">Ver mais</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="pb-4 bg-black text-bg-dark">
+    <h2 class="text-center py-3">Conheça todas as nossas facilidades</h2>
+    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center gap-3 px-3">
+      <ul class="divs-facilidades d-flex align-items-center list-unstyled">
+        <li><i class="verde-limao bi bi-x-diamond fs-1"></i></li>
+        <div>
+          <li class="ms-3 mb-1 verde-limao">PAGUE PELO PIX</li>
+          <li class="texto-menor ms-3">Ganhe 5% OFF em pagamentos via PIX</li>
+        </div>
+      </ul>
+      <ul class="divs-facilidades d-flex list-unstyled">
+        <li><i class="verde-limao bi bi-arrow-repeat fs-1"></i></li>
+        <div>
+          <li class="ms-3 mb-1 verde-limao">TROCA GRÁTIS</li>
+          <li class="texto-menor ms-3">
+            Fique livre para trocar em até 30 dias.
+          </li>
+        </div>
+      </ul>
+      <ul class="divs-facilidades d-flex list-unstyled">
+        <li><i class="verde-limao bi bi-flower1 fs-1"></i></li>
+        <div>
+          <li class="ms-3 mb-1 verde-limao">SUSTENTABILIDADE</li>
+          <li class="texto-menor ms-3">
+            Moda responsável, que respeita o meio ambiente.
+          </li>
+        </div>
+      </ul>
+    </div>
+  </section>
+
+  <form class="container border border-secondary my-3 my-xl-5 p-3 text-center div-novidades mx-auto">
+    <h5>
+      Quer receber nossas novidades, promoções exclusivas e 10% OFF na
+      primeira compra? Cadastre-se!
+    </h5>
+    <div class="input-group my-3"">
         <input
-          class="form-control border-secondary rounded-0"
-          type="email"
-          placeholder="Digite seu e-mail"
-          aria-label="Digite seu e-mail"
-          aria-describedby="button-addon2" />
-        <button type="button" id="button-addon2">Enviar</button>
-      </div>
-    </form>
+          class=" form-control border-secondary rounded-0" type="email" placeholder="Digite seu e-mail"
+      aria-label="Digite seu e-mail" aria-describedby="button-addon2" />
+    <button type="button" class="btn btn-primary botao-lilas rounded-0 border-0" id="button-addon2">Enviar</button>
+    </div>
+  </form>
 
-    <footer class="text-center">
-      <p class="py-3">2023 <i class="bi bi-c-circle"></i> Desenvolvido por Elisa Andrade | Projeto fictício sem fins comerciais</p>
-    </footer>
+  <footer class="text-center bg-black text-bg-dark">
+    <p class="card-text py-3">2023 <i class="bi bi-c-circle"></i> Desenvolvido por Elisa Andrade | Projeto fictício sem
+      fins comerciais</p>
+  </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
